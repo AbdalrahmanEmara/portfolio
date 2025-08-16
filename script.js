@@ -3,6 +3,7 @@ const navLinks = document.querySelectorAll('.nav__link');
 const navLink = document.querySelector('.nav__link');
 const namePopup = document.querySelector(".name__popup");
 const homeIntro = document.querySelector(".home__intro");
+const mainHeader = document.querySelectorAll(".main__header");
 
 function updateNavbarContent() {
   if (window.innerWidth > 600) {
@@ -46,4 +47,36 @@ window.addEventListener("load", function () {
     namePopup.classList.remove("show");
     homeIntro.classList.add("show");
   }, 2000);
+});
+
+/////////////////////////////////////////
+// Reveal Section
+const allSections = document.querySelectorAll(".section");
+
+const revealSection = function (entries, observer) {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+
+    entry.target.classList.remove("section--hidden");
+
+    const header = entry.target.querySelector(".main__header");
+    if (header) {
+      header.classList.add("rotate__header");
+      setTimeout(() => {
+        header.classList.remove("rotate__header");
+      }, 600);
+    }
+    // observer.unobserve(entry.target);
+    console.log("section observed");
+  });
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+});
+
+allSections.forEach((section) => {
+  section.classList.add("section--hidden");
+  sectionObserver.observe(section);
 });

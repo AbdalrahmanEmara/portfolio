@@ -1,5 +1,6 @@
 :root {
   --main-color: #14e956;
+  --main-light-color: #348b50ff;
 }
 
 /* Start Global Rules */
@@ -13,9 +14,10 @@ body {
   margin: 0;
   padding: 0;
   background-color: black;
+  color: white;
   font-family: sans-serif;
   height: 2000px;
-  font-family: ExoSpace;
+  /* font-family: ExoSpace; */
 }
 ul {
   list-style: none;
@@ -86,6 +88,18 @@ a {
 .show {
   display: flex;
 }
+.section {
+  padding: 120px 0;
+  opacity: 1;
+  transform: translateY(0);
+}
+.section--hidden {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.6s ease-out;
+
+}
+
 /* End Global Rules */
 
 /* start navbar */
@@ -238,4 +252,24 @@ main {
       opacity: 1;
       transform: translateX(0);
     }
+}
+
+/* Skills Section */
+.main__header h2 {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 10px 40px;
+  border-radius: 21px;
+  box-shadow: var(--main-color) 0px 0px 8px 1px inset;
+  color: var(--main-color);
+  font-size: 2.5rem;
+}
+.rotate__header {
+  transform: perspective(400px) rotateY(90deg);
+  animation: rot3d 1s ease forwards;  
+}
+@keyframes rot3d {
+  to {
+    transform: perspective(400px) rotateY(0deg);
+  }
 }
