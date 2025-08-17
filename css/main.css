@@ -36,6 +36,9 @@ a {
 }
 /* Small Screens */
 @media (max-width: 767px) {
+  .main__container {
+    width: 100%;
+  }
   .home__intro__image {
     display: none;
   }
@@ -158,7 +161,7 @@ main {
   /* background-image: url(/images/hero_black3.jpg); */
   background-size: cover;
   height: 100vh;
-
+  /* padding: 0; */
 }
 .name__popup {
   max-width: 100%;
@@ -257,7 +260,7 @@ main {
 /* Skills Section */
 .main__header h2 {
   width: fit-content;
-  margin: 0 auto;
+  margin: 0 auto 100px;
   padding: 10px 40px;
   border-radius: 21px;
   box-shadow: var(--main-color) 0px 0px 8px 1px inset;
@@ -276,6 +279,7 @@ main {
 
 /* Skill Box */
 .skills__container {
+  width: 100%;
   display: flex;
   gap: 2rem;
   justify-content: center;
@@ -306,6 +310,7 @@ main {
   padding: 1rem;
   text-align: center;
   transition: transform 0.6s;
+  box-shadow: 0 0 10px 1px var(--main-color);
 }
 
 .skill-front {
@@ -329,3 +334,128 @@ main {
 .skill-box:hover .skill-back {
   transform: rotateY(360deg);
 }
+
+/* Projects Section */
+.project__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+}
+/* project box content */
+.project__box__content {
+  position: relative;
+  flex: 1; 
+  min-width: 250px;
+  max-width: 450px;
+}
+.project__box__content .project__header {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: rgba(0, 204, 255, 1);
+}
+.project__description {
+  line-height: 1.7;
+  font-size: 1rem;
+}
+.tools__head {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgba(0, 204, 255, 1);
+}
+.project__tools {
+  display: flex;
+  gap: 0.5rem;
+}
+.project__tools .tool {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ccc;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+}
+/* Details Button */
+.glassy-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.7rem 1.5rem;
+  border-radius: 12px;
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #00e5ff;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.glassy-btn:hover {
+  background: rgba(0, 229, 255, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.8),
+              0 0 40px rgba(0, 229, 255, 0.4);
+}
+
+.project__box__image {
+  width: fit-content;
+}
+.project__box__image img {
+  max-width: 500px;
+  border-radius: 15px;
+  transform: perspective(1000px) rotate3d(1, 1, 0, 45deg);
+  animation: rotate_project_image 1s linear forwards;
+  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+@media (max-width: 768px) {
+  .project__box__image img {
+    width: 100%;
+  }
+}
+img.p--1 {
+  box-shadow: 0 0 25px 5px rgba(230, 250, 255, 0.56);
+}
+img.p--2 {
+  box-shadow: 0 0 25px 5px rgba(20, 190, 233, 0.6);
+}
+img.p--3 {
+  box-shadow: 0 0 25px 5px rgba(199, 103, 255, 0.69);
+}
+.project__box__image img:hover {
+  animation: rotate_project_image_hover 0.7s linear forwards;
+
+  transform: scale(1.5);
+}
+
+/* keyframes */
+@keyframes rotate_project_image {
+  from {
+    transform: perspective(1000px) rotate3d(1, 1, 0, 10deg);
+  }
+
+  to {
+    transform: perspective(1000px) rotate3d(1, 1, 0, 35deg);
+  }
+}
+
+@keyframes rotate_project_image_hover {
+  0% {
+    transform: perspective(1000px) rotate3d(1, 1, 0, 35deg);
+  }
+
+  100% {
+    transform: perspective(1000px) rotate3d(1, 1, 0, 0deg);
+  }
+
+}
+
+
