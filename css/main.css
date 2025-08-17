@@ -161,13 +161,14 @@ main {
   /* background-image: url(/images/hero_black3.jpg); */
   background-size: cover;
   height: 100vh;
-  /* padding: 0; */
+  overflow: hidden;
 }
 .name__popup {
   max-width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start; start at the top
+  align-items: flex-start; 
+  text-align: center;
   over-flow: hidden;
 }
 
