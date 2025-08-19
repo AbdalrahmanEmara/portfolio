@@ -4,6 +4,10 @@ const navLink = document.querySelector('.nav__link');
 const namePopup = document.querySelector(".name__popup");
 const homeIntro = document.querySelector(".home__intro");
 const mainHeader = document.querySelectorAll(".main__header");
+const mainPage = document.querySelector("main");
+const projectPage = document.querySelector(".project__page");
+const projectsSection = document.querySelector(".projects__section");
+const projectDetails = document.querySelectorAll(".project__details");
 
 function updateNavbarContent() {
   if (window.innerWidth > 600) {
@@ -79,4 +83,37 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 allSections.forEach((section) => {
   section.classList.add("section--hidden");
   sectionObserver.observe(section);
+});
+
+// Handle Details project button
+
+projectsSection.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (!e.target.classList.contains("glassy-btn")) return;
+
+  const id = e.target.dataset.id;
+  console.log(id);
+  // const btnProjectDetails = e.target.querySelector(".glassy-btn");
+
+  mainPage.classList.add("hidden");
+  projectPage.classList.remove("hidden");
+  document.getElementById(`proj--${id}`).classList.remove("hidden");
+
+  // scroll to top
+  window.scroll({ top: 0, behavior: "smooth" });
+});
+
+// Handle Back to Home Page
+projectPage.addEventListener("click", function (e) {
+  if (!e.target.classList.contains("btn__back__home")) return;
+
+  e.preventDefault();
+
+  projectPage.classList.add("hidden");
+  projectDetails.forEach((project) => project.classList.add("hidden"));
+
+  mainPage.classList.remove("hidden");
+
+  // scroll to top
+  window.scroll({ top: 0, behavior: "smooth" });
 });
