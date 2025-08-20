@@ -16,7 +16,6 @@ body {
   background-color: black;
   color: white;
   font-family: sans-serif;
-  height: 2000px;
   /* font-family: ExoSpace; */
 }
 ul {
@@ -81,7 +80,7 @@ button {
     display: block;
   }
   .home__intro__image img {
-    width: 600px;
+    width: 500px;
   }
   .home__intro__header {
     font-size: 4.2rem;
@@ -120,7 +119,7 @@ header {
   width: 90%;
   margin: auto;
   margin-top: 40px;
-  padding: 5px;
+  padding: 4px;
   display: flex;
   justify-content: space-between;
 
@@ -135,8 +134,33 @@ header {
   box-shadow: rgba(255, 255, 255, 1) 0px 5px 30px -10px;
   z-index: 1000;
 }
+@media screen and (max-width: 768px) {
+  .nav__links {
+    padding: 4px;
+  }
+  .nav__link {
+    padding: 13px 20px;
+  }
+}
+@media screen and (min-width: 769px) {
+  .nav__links {
+    padding: 5px;
+  }
+  .nav__link {
+    padding: 18px 25px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .nav__links {
+    padding: 5px;
+
+  }
+  .nav__link {
+    padding: 20px 30px;
+  }
+}
 .nav__link {
-  padding: 18px 24px;
+  /* padding: 18px 24px; */
 
   color: black;
   font-weight: bold;
@@ -252,6 +276,8 @@ main {
   animation-delay: 0.3;
 }
 .home__intro__image img {
+  /* width: 400px;
+  border-radius: 50%; */
 }
 
 @keyframes slide {
@@ -579,4 +605,57 @@ img.p--4 {
 .demo__link:hover {
   transform: translateY(-7px);
   box-shadow: 0 0 4px 4px var(--main-color);
+}
+
+/* Footer */
+footer {
+  padding-top: 60px;
+  background-color: #111;
+  color: #ccc;
+}
+footer .main__container {
+  /* display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap; */
+}
+footer h2 {
+  text-transform: uppercase;
+  font-size: 1.3rem;
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+.footer__content .about__me {
+  max-width: 450px;
+}
+.definition {
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+.social {
+  margin-bottom: 100px;
+
+}
+.social__links {
+  display: flex;
+  gap: 10px;
+}
+.social__links a {
+  color: var(--main-color);
+  font-size: 1.3rem;
+}
+
+.copy__rights {
+  font-size: 0.8rem;
+  padding: 60px 0;
+  text-align: center;
+}
+.copy__rights span {
+  text-decoration: underline;
+  font-weight: bold;
 }
