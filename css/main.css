@@ -53,7 +53,7 @@ button {
     display: none;
   }
   .home__intro__header {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
 }
 /* Medium Screens */
@@ -68,7 +68,7 @@ button {
     width: 500px;
   }
   .home__intro__header {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 }
 /* Large Screens */
@@ -83,14 +83,20 @@ button {
     width: 500px;
   }
   .home__intro__header {
-    font-size: 4.2rem;
+    font-size: 3.6rem;
   }
 }
 
 .hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
   display: none;
 }
 .show {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease;
   display: flex;
 }
 .section {
@@ -184,18 +190,20 @@ main {
   padding-top: 100px;
 }
 .hero__section {
-  /* background-image: url(/images/hero_black3.jpg); */
+  position: relative;
   background-size: cover;
-  height: calc(100vh);
+  min-height: 100dvh;
   overflow: hidden;
 }
 .name__popup {
+  position: absolute;
+  inset: 0;
   max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   text-align: center;
-  over-flow: hidden;
+  overflow: hidden;
 }
 
 .intro__name {
@@ -204,7 +212,7 @@ main {
   color: transparent;
   position: relative;
   opacity: 0;
-  over-flow: hidden;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 768px) {
@@ -238,7 +246,7 @@ main {
     transform: translateY(40vh);
   }
   100% {
-    display: none;
+    opacity: 0;
   }
 }
 
@@ -329,12 +337,12 @@ main {
   font-weight: bold;
 }
 .home__intro__header {
-  font-size: ;
+  /* font-size: ; */
 }
 .career,
 .frontend {
   color: #14e956;
-  font-family: Cyborg;
+  /* font-family: Cyborg; */
   text-shadow: 3px 3px 0 #1f2127, -1px -1px 0 #1f2127, 1px -1px 0 #1f2127,
     -1px 1px 0 #1f2127, 1px 1px 0 #1f2127;
 }
@@ -347,7 +355,7 @@ p.overview {
   opacity: 0;
   transform: translateX(200px);
   animation: slide 1s ease-out forwards;
-  animation-delay: 0.3;
+  animation-delay: 0.3s;
 }
 .home__intro__image img {
   /* width: 400px;

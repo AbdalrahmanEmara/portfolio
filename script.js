@@ -38,17 +38,15 @@ navContainer.addEventListener("mouseout", function (e) {
   if (window.innerWidth > 600) return; // do nothing on large screens
   const link = e.target.closest(".nav__link");
   if (!link) return;
-  link.innerHTML =
-    link.innerHTML = `<i class="${link.dataset.content__mobile}"></i>`;
+  link.innerHTML = `<i class="${link.dataset.content__mobile}"></i>`;
 });
 
 // Hero Section
 window.addEventListener("load", function () {
-  namePopup.classList.remove("hidden");
-  namePopup.classList.add("show");
   this.setTimeout(() => {
-    namePopup.classList.add("hidden");
     namePopup.classList.remove("show");
+    namePopup.classList.add("hidden");
+    homeIntro.classList.remove("hidden");
     homeIntro.classList.add("show");
   }, 2000);
 });
