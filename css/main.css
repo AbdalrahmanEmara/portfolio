@@ -181,12 +181,12 @@ header {
 
 /* main section */
 main {
-  /* margin-top: 100px; */
+  padding-top: 100px;
 }
 .hero__section {
   /* background-image: url(/images/hero_black3.jpg); */
   background-size: cover;
-  height: 100vh;
+  height: calc(100vh);
   overflow: hidden;
 }
 .name__popup {
@@ -204,11 +204,21 @@ main {
   color: transparent;
   position: relative;
   opacity: 0;
-  animation: nameIntro 2s ease-out forwards;
   over-flow: hidden;
 }
 
-@keyframes nameIntro {
+@media screen and (max-width: 768px) {
+  .intro__name {
+    animation: nameIntrosm 2s ease-out forwards;
+  }
+}
+@media screen and (min-width: 769px) {
+  .intro__name {
+    animation: nameIntrolg 2s ease-out forwards;
+  }
+}
+
+@keyframes nameIntrosm {
   0% {
     transform: translateY(0);
     font-size: 1em;
@@ -218,7 +228,31 @@ main {
     opacity: 1;
   }
   60% {
-    transform: translateY(40vh); /* move toward center */
+    transform: translateY(30vh); /* move toward center */
+    font-size: 3.5em; /* grow bigger */
+    opacity: 1;
+    color: var(--main-color);
+  }
+  99% {
+    color: transparent;
+    transform: translateY(40vh);
+  }
+  100% {
+    display: none;
+  }
+}
+
+@keyframes nameIntrolg {
+  0% {
+    transform: translateY(0);
+    font-size: 1em;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(30vh); /* move toward center */
     font-size: 6em; /* grow bigger */
     opacity: 1;
     color: var(--main-color);
@@ -235,7 +269,7 @@ main {
 /* Home Intro Section */
 .home__intro {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 100px);
   color: white;
 
   justify-content: center;
@@ -249,6 +283,42 @@ main {
   transform: translateX(-200px);
   animation: slide 1s ease-out forwards;
 }
+
+.welcome span {
+  display: inline-block;
+  font-size: 1.2rem;
+  margin-right: 5px;
+  animation: hey 2s forwards infinite;
+}
+ @keyframes hey {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+  
+    15% {
+      transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+    }
+  
+    30% {
+      transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+    }
+  
+    45% {
+      transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+    }
+  
+    60% {
+      transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+    }
+  
+    75% {
+      transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+    }
+  
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
 
 .welcome {
   /* background-color: #00800073; */
@@ -267,6 +337,10 @@ main {
   font-family: Cyborg;
   text-shadow: 3px 3px 0 #1f2127, -1px -1px 0 #1f2127, 1px -1px 0 #1f2127,
     -1px 1px 0 #1f2127, 1px 1px 0 #1f2127;
+}
+p.overview {
+  line-height: 1.6;
+  font-size: 0.9rem;
 }
 .home__intro__image {
   flex: 1;
